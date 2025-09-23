@@ -18,19 +18,19 @@ body {
 }
 
 
-        /* Panel izquierdo */
-        .left-panel {
-            flex: 1;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            
-            padding: 60px 80px;
-            position: relative;
-            overflow: hidden;
-        }
+/* Panel izquierdo */
+.left-panel {
+    flex: 1;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 80px;
+    position: relative;
+    overflow: hidden;
+}
 
 /* Panel izquierdo */
 .left-panel {
@@ -56,17 +56,16 @@ body {
     opacity: 0.3;
 }
 
-        .logo-text {
-            color: white;
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-top: 9rem;
-        }
+.logo-text {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
 
-        
 
-        
+
+
 
 .logo-symbol {
     width: 60px;
@@ -87,7 +86,7 @@ body {
     font-size: 14px;
 }
 
-       
+
 
 .shopping-elements {
     position: relative;
@@ -96,7 +95,7 @@ body {
     height: 200px;
 }
 
-        
+
 
 .food-icon {
     position: absolute;
@@ -256,6 +255,20 @@ body {
 .forgot-password a:hover {
     text-decoration: underline;
 }
+
+.logo-ine {
+    width: 10rem;
+    height: 3rem;
+    background-image: url(/assets/image.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    position: absolute; /* o fixed si quieres que se quede fija al hacer scroll */
+    top: 12px;   /* pegada arriba */
+    left: 5px;;  /* pegada a la izquierda */
+}
+
+
 
 .version {
     text-align: center;
