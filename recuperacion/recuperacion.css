@@ -1,0 +1,177 @@
+/* Contenedor dividido en 2 mitades */
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Mitad izquierda con fondo azul */
+.left {
+  flex: 1;
+  background-color: #0056b3; /* azul oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Caja de texto centrada */
+.left .overlay {
+  background: rgba(255, 255, 255, 0.1); /* transparencia */
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+}
+
+.left h1 {
+  font-size: 2.8rem;   /* título grande */
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.left h2 {
+  font-size: 1.3rem;   /* subtítulo */
+  color: #e6e6e6;
+  font-weight: normal;
+}
+
+/* Mitad derecha con fondo celeste claro */
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e6f2ff; /* celeste claro */
+}
+
+/* Tarjeta del formulario */
+.card {
+  background: #fff;
+  padding: 3rem 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  width: 380px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.title {
+  color: #0056b3;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn:hover {
+  background: #004080;
+}
+
+/* Spinner */
+.spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  margin-left: 8px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Acciones adicionales */
+.actions {
+  margin-top: 1rem;
+}
+
+.actions a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 0.9rem;
+}
+
+/* Alertas */
+.alert {
+  display: none;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+.alert.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.alert.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .left {
+    height: 200px;
+  }
+  .right {
+    flex: none;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+  .left h1 {
+    font-size: 2rem;
+  }
+  .left h2 {
+    font-size: 1rem;
+  }
+}

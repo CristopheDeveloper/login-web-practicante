@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recuperar contraseña</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* Mitad izquierda */
+    .left {
+      flex: 1;
+      background-color: #0056b3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+    .left h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .left h2 { font-size: 1.3rem; font-weight: normal; }
+
+    /* Mitad derecha ocupa todo con fondo blanco */
+    .right {
+      flex: 1;
+      background: #fff; /* ahora todo blanco */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 3rem;
+    }
+
+    .title { color: #0056b3; margin-bottom: 1rem; font-size: 2rem; }
+    .subtitle { margin-bottom: 2rem; color: #666; }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: left;
+    }
+    .form-label { font-weight: bold; }
+    .form-input {
+      width: 100%;
+      padding: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 400px;
+      padding: 1rem;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn:hover { background: #004080; }
+
+    .alert {
+      display: none;
+      margin-top: 1.2rem;
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .alert.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .back-link {
+      display: none;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #0056b3;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .container { flex-direction: column; }
+      .left { height: 200px; }
+      .right { height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Panel izquierdo -->
+    <div class="left">
+      <h1>Dirección de Estadísticas Continuas</h1>
+      <h2>INSTITUTO NACIONAL DE ESTADÍSTICA</h2>
+    </div>
+
+    <!-- Panel derecho (ocupa todo en blanco) -->
+    <div class="right">
+      <h1 class="title">Recuperar contraseña</h1>
+      <p class="subtitle">Ingresa tu correo y te enviaremos un enlace</p>
+
+      <form id="recoverForm" autocomplete="off">
+        <div class="form-group">
+          <label for="recoverEmail" class="form-label">Correo electrónico</label>
+          <input type="email" id="recoverEmail" class="form-input" placeholder="Ej. usuario@gmail.com" required />
+        </div>
+
+        <button type="submit" class="btn">Enviar enlace</button>
+      </form>
+
+      <div id="message" class="alert" role="status" aria-live="polite"></div>
+      <a id="backLink" class="back-link" href="../index.html">⬅ Volver al inicio de sesión</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('recoverForm');
+    const emailInput = document.getElementById('recoverEmail');
+    const message = document.getElementById('message');
+    const backLink = document.getElementById('backLink');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!emailInput.checkValidity()) {
+        emailInput.reportValidity();
+        return;
+      }
+
+      // Mostrar mensaje de éxito
+      message.style.display = 'block';
+      message.className = 'alert success';
+      message.textContent = "✅ Correo enviado correctamente.";
+
+      // Mostrar enlace de regreso al login
+      backLink.style.display = 'inline-block';
+
+      // limpiar input
+      emailInput.value = '';
+    });
+
+    emailInput.addEventListener('input', () => {
+      message.style.display = 'none';
+      message.className = 'alert';
+      message.textContent = '';
+      backLink.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
